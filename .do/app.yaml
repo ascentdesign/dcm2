@@ -5,16 +5,17 @@ alerts:
   - rule: DOMAIN_FAILED
 features:
   - buildpack-stack=ubuntu-22
-static_sites:
+services:
   - name: web
-    environment_slug: html
+    environment_slug: node-js
     github:
       repo: ascentdesign/dcm2
       branch: main
       deploy_on_push: true
     source_dir: /
     build_command: npm install --no-audit --no-fund && npm run build -- --minify false
-    output_dir: dist
+    run_command: npx serve -s dist -l 8080
+    http_port: 8080
     envs:
       - key: NODE_OPTIONS
         type: GENERAL
@@ -26,4 +27,5 @@ static_sites:
         value: "https://adventurous-grasshopper-203.convex.cloud"
     routes:
       - path: /
+      - path: /*
       - path: /*
