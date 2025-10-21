@@ -13,7 +13,7 @@ static_sites:
       branch: main
       deploy_on_push: true
     source_dir: /
-    build_command: npm ci --no-audit --no-fund && npm run build -- --minify false
+    build_command: npm install --no-audit --no-fund && npm run build -- --minify false
     output_dir: dist
     envs:
       - key: NODE_OPTIONS

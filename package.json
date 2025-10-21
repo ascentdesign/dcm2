@@ -11,6 +11,9 @@
     "lint": "tsc -p convex -noEmit --pretty false && tsc -p . -noEmit --pretty false && convex dev --once && vite build",
     "preview": "vite preview --port $PORT --host"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "@convex-dev/auth": "^0.0.80",
     "chart.js": "^4.5.1",
