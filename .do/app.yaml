@@ -14,7 +14,7 @@ services:
       deploy_on_push: true
     source_dir: /
     build_command: npm install --no-audit --no-fund && npm run build -- --minify false
-    run_command: npx serve -s dist -l 8080
+    run_command: npx serve -s dist -l tcp://0.0.0.0:8080
     http_port: 8080
     envs:
       - key: NODE_OPTIONS
@@ -27,5 +27,4 @@ services:
         value: "https://adventurous-grasshopper-203.convex.cloud"
     routes:
       - path: /
-      - path: /*
       - path: /*
