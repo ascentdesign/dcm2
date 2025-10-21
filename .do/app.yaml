@@ -26,3 +26,4 @@ static_sites:
         value: "https://adventurous-grasshopper-203.convex.cloud"
     routes:
       - path: /
+      - path: /*
