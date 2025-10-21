@@ -26,7 +26,8 @@
     "resend": "^6.2.2",
     "sonner": "^2.0.3",
     "tailwind-merge": "^3.1.0",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "serve": "^14.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
@@ -46,7 +47,6 @@
     "tailwindcss": "~3",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
-    "vite": "^6.2.0",
-    "serve": "^14.2.1"
+    "vite": "^6.2.0"
   }
 }
