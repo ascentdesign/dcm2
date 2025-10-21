@@ -1,0 +1,22 @@
+name: dcm2
+region: nyc
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
+static_sites:
+  - name: web
+    environment_slug: html
+    github:
+      repo: ascentdesign/dcm2
+      branch: main
+      deploy_on_push: true
+    source_dir: /
+    build_command: npm ci && npm run build
+    output_dir: dist
+    envs:
+      - key: VITE_CONVEX_URL
+        type: GENERAL
+        scope: RUN_AND_BUILD_TIME
+        value: "https://adventurous-grasshopper-203.convex.cloud"
+    routes:
+      - path: /

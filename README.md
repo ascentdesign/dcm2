@@ -27,3 +27,21 @@ Check out the [Convex docs](https://docs.convex.dev/) for more information on ho
 ## HTTP API
 
 User-defined http routes are defined in the `convex/router.ts` file. We split these routes into a separate file from `convex/http.ts` to allow us to prevent the LLM from modifying the authentication routes.
+
+## Deploying to DigitalOcean App Platform
+
+- Ensure your code is pushed to GitHub at `ascentdesign/dcm2` on `main`.
+- App spec is provided at `.do/app.yaml` for a static site build.
+- Build command: `npm ci && npm run build`; output directory: `dist`.
+- Environment variable required:
+  - `VITE_CONVEX_URL` (set to your Convex deployment URL; defaults to current dev URL).
+
+Steps
+- In DigitalOcean, Create → Apps → Select GitHub repo `ascentdesign/dcm2`.
+- App Platform will detect `.do/app.yaml`; confirm settings and environment.
+- Set `VITE_CONVEX_URL` to your production Convex URL if available.
+- Deploy; the site will be served on DigitalOcean’s CDN.
+
+Notes
+- Backend is hosted on Convex Cloud; no server process needed on App Platform.
+- For local development, keep `.env.local` values; only `VITE_` vars are bundled at build time.
