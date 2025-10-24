@@ -1,5 +1,5 @@
 name: dcm2
-region: nyc
+region: nyc3
 alerts:
   - rule: DEPLOYMENT_FAILED
   - rule: DOMAIN_FAILED
