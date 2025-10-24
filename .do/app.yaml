@@ -8,23 +8,24 @@ features:
 services:
   - name: web
     environment_slug: node-js
+    instance_count: 1
+    instance_size_slug: basic-xxs
     github:
       repo: ascentdesign/dcm2
       branch: main
       deploy_on_push: true
     source_dir: /
-    build_command: npm install --no-audit --no-fund && npm run build -- --minify false
-    run_command: npx serve -s dist -l tcp://0.0.0.0:8080
+    build_command: npm ci --omit=dev && npm run build
+    run_command: node node_modules/serve/build/main.js -s dist -l tcp://0.0.0.0:8080
     http_port: 8080
     envs:
-      - key: NODE_OPTIONS
+      - key: NODE_ENV
         type: GENERAL
         scope: RUN_AND_BUILD_TIME
-        value: "--max_old_space_size=512"
+        value: "production"
       - key: VITE_CONVEX_URL
         type: GENERAL
         scope: RUN_AND_BUILD_TIME
         value: "https://adventurous-grasshopper-203.convex.cloud"
     routes:
       - path: /
-      - path: /*
