@@ -28,4 +28,4 @@ services:
         scope: RUN_AND_BUILD_TIME
         value: "https://adventurous-grasshopper-203.convex.cloud"
     routes:
-      - path: /
+      - path: /*
