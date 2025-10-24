@@ -9,12 +9,12 @@ static_sites:
       repo: ascentdesign/dcm2
       branch: main
       deploy_on_push: true
-    source_dir: /
-    build_command: npm ci && npm run build
+    build_command: npm install --production=false --legacy-peer-deps && npm run build
     output_dir: /dist
+    environment_slug: node-js
     envs:
+      - key: NODE_OPTIONS
+        value: "--max-old-space-size=2048"
       - key: VITE_CONVEX_URL
         value: "https://adventurous-grasshopper-203.convex.cloud"
-    routes:
-      - path: /
     catchall_document: index.html
